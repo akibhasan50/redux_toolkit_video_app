@@ -9,7 +9,7 @@ export const getRelatedVideos = async ({ tags, id }) => {
     tags?.length > 0
       ? tags
           .map((tag) => {
-          return  `tags_like=${tag}`;
+          return   `tags_like=${tag}`;
           })
           .join("&") + `&id_ne=${id}&_limit=${limit}`
       : `&id_ne=${id}&_limit=${limit}`;
