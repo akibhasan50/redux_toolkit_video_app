@@ -7,10 +7,13 @@ const initialState = {
   isError: false,
   error: "",
 };
-export const fetchVideos = createAsyncThunk("videos/fetchVideos", async () => {
-  const videos = getVideos();
-  return videos;
-});
+export const fetchVideos = createAsyncThunk(
+  "videos/fetchVideos",
+  async ({ tags, search }) => {
+    const videos = getVideos({ tags, search });
+    return videos;
+  }
+);
 const videosSlice = createSlice({
   name: "videos",
   initialState,
@@ -33,4 +36,4 @@ const videosSlice = createSlice({
   },
 });
 
-export default videosSlice.reducer
+export default videosSlice.reducer;
